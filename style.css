@@ -1,0 +1,86 @@
+/* 基本字體與重置 */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif;
+  color: #111;
+}
+
+/* 導覽列（深灰底） */
+.navbar {
+  background: #333;
+  position: sticky; top: 0;
+  z-index: 100;
+}
+
+/* 導覽列內部：左右排列，右上放漢堡鍵 */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 連結：桌機水平排列 */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-link {
+  color: #e6e6e6;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 2px;
+  transition: color .15s ease, background-color .15s ease;
+}
+.nav-link:hover, .nav-link:focus {
+  color: #fff;
+  background: #4a4a4a;
+  outline: none;
+}
+
+/* 漢堡鍵：預設隱藏，手機才顯示；靠右 */
+.hamburger {
+  display: none;
+  margin-left: auto;          /* 讓它靠右 */
+  width: 44px; height: 44px;
+  border: 0; background: transparent; color: #e6e6e6;
+  cursor: pointer; border-radius: 6px;
+}
+.hamburger:focus-visible { outline: 2px solid #bdbdbd; outline-offset: 2px; }
+.hamburger-box {
+  position: relative;
+  width: 22px; height: 2px; background: currentColor; display: inline-block;
+}
+.hamburger-box::before, .hamburger-box::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 2px; background: currentColor;
+}
+.hamburger-box::before { top: -7px; }
+.hamburger-box::after  { top: 7px; }
+
+/* ===== 手機版（≤480px）：變成右上角漢堡選單 ===== */
+@media (max-width: 480px) {
+  /* 顯示漢堡鍵、隱藏選單（未展開） */
+  .hamburger { display: inline-grid; place-items: center; }
+
+  .nav-links {
+    display: none;                 /* 先隱藏 */
+    position: absolute;
+    left: 0; right: 0; top: 56px;  /* 出現在導覽列下方 */
+    background: #333;
+    padding: 8px 6px;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-links.show { display: flex; }   /* 展開時顯示 */
+
+  .nav-link { padding: 14px 12px; border-radius: 4px; }
+}
+
+/* 內容容器與標題 */
+.container { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+h1 { font-size: clamp(28px, 4vw, 48px); margin: 24px 0; }
