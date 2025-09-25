@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 置頂導覽列 -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <!-- 導覽連結（桌機水平、手機收合） -->
+      <nav class="nav-links" id="primary-navigation" role="navigation" aria-label="主選單">
+        <a class="nav-link" href="#home">首頁</a>
+        <a class="nav-link" href="#services">服務</a>
+        <a class="nav-link" href="#about">關於我們</a>
+        <a class="nav-link" href="#contact">聯絡我們</a>
+      </nav>
+
+      <!-- 漢堡鍵：僅在 480px 以下顯示，靠右上 -->
+      <button class="hamburger" id="navToggle"
+              aria-label="開啟主選單"
+              aria-controls="primary-navigation"
+              aria-expanded="false">
+        <span class="hamburger-box" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- 主內容區域，導覽列下方顯示文字 -->
+  <main class="container">
+    <h1>這是作業一第一題</h1>
+  </main>
+
+
+  <script src="main.js" defer></script>
+</body>
+</html>
